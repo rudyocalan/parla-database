@@ -14,8 +14,7 @@ He can label the same hike many times, at different moments.
 ## Specifications
 
 Here is the entity-relation model that needs to be implemented:
-
-- TODO
+![Entity Relation Diagram](docs/erd.png)
 
 ## Tables and attributes
 
@@ -27,7 +26,7 @@ Here are constraints on types for each tables:
 - `landtypes`: landid (int) [PK], landtype (text)
 - `label`: labelid (int) [PK], labelinfo (text)
 - `hasalandtype`: hikeid (int)[FK], landid [FK]
-- `hasbeenlabeled`: userid (int) [FK], hikeid(int)[FK], labelid (int) [FK], timestamp (bigint)
+- `haslabeled`: userid (int) [FK], hikeid(int)[FK], labelid (int) [FK], timestamp (bigint)
 
 [PK] stands for Primary Key
 [FK] stands for Foreign Key

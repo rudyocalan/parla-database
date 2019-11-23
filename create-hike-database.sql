@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS label CASCADE;
 DROP TABLE IF EXISTS landtypes CASCADE;
 DROP TABLE IF EXISTS ratings CASCADE;
-DROP TABLE IF EXISTS hasbeenlabeled CASCADE;
+DROP TABLE IF EXISTS haslabeled CASCADE;
 DROP TABLE IF EXISTS hasalandtype CASCADE;
 
 /**
@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS hasalandtype CASCADE;
  *
  * ratings: userid (int, foreign key), hikeid (int, foreign key), rating (numeric), timestamp (bigint, seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970)
  *
- * hasbeenlabeled: userid (int, foreign key), hikeid (int, foreign key), labelid (int, foreign key), timestamp (bigint, seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970).
+ * haslabeled: userid (int, foreign key), hikeid (int, foreign key), labelid (int, foreign key), timestamp (bigint, seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970).
  *
  * hasalandtype: hikeid (int, foreign key), landid (int, foreign key)
  */
@@ -61,7 +61,7 @@ CREATE TABLE ratings (
   PRIMARY KEY (userid, hikeid)
 );
 
-CREATE TABLE hasbeenlabeled (
+CREATE TABLE haslabeled (
   userid INT REFERENCES users(userid) ON DELETE NO ACTION,
   hikeid INT REFERENCES hikes(hikeid) ON DELETE NO ACTION,
   labelid INT REFERENCES label(labelid) ON DELETE NO ACTION,

@@ -1,0 +1,63 @@
+graph G {
+
+    /**
+     * Tables and attributes def
+     */
+	"users" [shape=diamond];
+	"users_attrs" [shape=record, label="userid\nusername"];
+    "users" -- "users_attrs";
+
+	"ratings" [shape=diamond];
+    "ratings_attrs" [
+        shape=record,
+        line=dot,
+        label="userid\nhikeid\nrating\ntimestamp"
+    ];
+    "ratings" -- "ratings_attrs";
+
+	"hikes" [shape=diamond];
+    "hikes_attrs" [
+        shape=record,
+        label="hikeid\nhikename"
+    ];
+    "hikes" -- "hikes_attrs";
+
+	"labels" [shape=diamond];
+    "labels_attrs" [
+        shape=record,
+        label="labelid\nlabelinfo"
+    ];
+    "labels" -- "labels_attrs";
+
+	"landTypes" [shape=diamond];
+    "land_types_attrs" [
+        shape=record,
+        label="landid\nlandtype"
+    ];
+    "landTypes" -- "land_types_attrs";
+
+	"hasLabeled" [shape=diamond];
+    "has_been_labeled_attrs" [
+        shape=record,
+        label="userid\nhikeid\nlabelid\ntimestamp"
+    ];
+    "hasLabeled" -- "has_been_labeled_attrs";
+
+	"hasALandType" [shape=diamond];
+    "has_a_land_type_attrs" [
+        shape=record,
+        label="hikeid\nlandid"
+    ];
+    "hasALandType" -- "has_a_land_type_attrs";
+
+    /**
+     *  Relations between tables
+     */
+    "users" -- "ratings";
+    "users" -- "hasLabeled";
+    "hasLabeled" -- "labels";
+    "hasLabeled" -- "hikes";
+    "hikes" -- "hasALandType";
+    "hasALandType" -- "landTypes";
+    "ratings" -- "hikes";
+}
