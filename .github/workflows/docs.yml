@@ -14,3 +14,6 @@ jobs:
     - name: Generate entity relation diagram
       run: |
        dot -Tpng docs/erd.dot -o docs/erd.png
+       git add docs/erd.png
+       git commit -am "updated entity relation diagram"
+       git push origin master
