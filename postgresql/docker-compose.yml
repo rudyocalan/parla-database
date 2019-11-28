@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:12.1-alpine
+    container_name: postgres-12
+    networks:
+     - pgadmin
+    volumes:
+     - './data:/var/lib/postgresql/data'
+    environment:
+     - POSTGRES_PASSWORD=sigl2020
+     - POSTGRES_USER=sigl2020
+  pgadmin4:
+    image: dpage/pgadmin4:4.15
+    container_name: pgadmin4
+    networks:
+     - pgadmin
+    volumes:
+     - './pgadmin:/var/lib/pgadmin'
+    environment:
+     - PGADMIN_DEFAULT_EMAIL=arla@sigl.fr
+     - PGADMIN_DEFAULT_PASSWORD=sigl2020
+    ports:
+     - '8040:80'
+
+networks:
+  pgadmin:
+    external:
+      name: pgadmin
