@@ -14,7 +14,7 @@ Use the `docker-compose` file provided:
 
 ```bash
 # Create a docker network for pgadmin to contact PostgreSQL
-docker networks create pgadmin
+docker network create pgadmin
 # Start both PostgreSQL and PgAdmin in background
 docker-compose up -d
 ```
