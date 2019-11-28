@@ -6,28 +6,28 @@ This is a development setup to play around with SQL.
 
 ## PgAdmin
 
-PgAdmin is a simple web app providing a UI to manage your postgreSQL.
+PgAdmin is a simple web app providing a UI to manage your PostgreSQL.
 
-## Start postgreSQL and PgAdmin
+## Start PostgreSQL and PgAdmin
 
 Use the `docker-compose` file provided:
 
 ```bash
-# Create a docker network for pgadmin to contact postgresql
+# Create a docker network for pgadmin to contact PostgreSQL
 docker networks create pgadmin
 # Start both PostgreSQL and PgAdmin in background
 docker-compose up -d
 ```
 
 You should be able to access PgAdmin on http://localhost:8040/
-usermail: arla@sigl.fr
-password: sigl2020
+- usermail: arla@sigl.fr
+- password: sigl2020
 
-For postgreSQL instance running locally, credentials are:
-user: sigl2020
-password: sigl2020
+For PostgreSQL instance running locally, credentials are:
+- user: sigl2020
+- password: sigl2020
 
-Once logged in add the local postgres:
+Once logged in add the local PostgreSQL:
 1. Add server
 2. Enter a connection name (e.g. local)
 ![create-server](doc/create-server.png)
@@ -39,7 +39,7 @@ Once logged in add the local postgres:
 
 > Note: You should have your `docker-compose`'s container up and running
 
-If you wish to visualized your data directly using postgres CLI,
+If you wish to visualized your data directly using PostgreSQL CLI,
 you can enter the PostgreSQL running container:
 
 ```bash
@@ -53,7 +53,7 @@ docker exec -it postgres-12 psql --username sigl2020 --password
 # sigl2020=# 
 ```
 
-## Restarting postgreSQL and PgAdmin
+## Restarting PostgreSQL and PgAdmin
 
 To restart without data loss:
 ```bash
