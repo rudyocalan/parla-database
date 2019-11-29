@@ -150,12 +150,12 @@ def generate_hikes_landtypes(hikes_landtypes_file, hikes, landtypes):
 
 def create_hikes_labels(userid, hikes, labels):
     hikes_labels = []
-    number_of_labels_for_hike = number_of_hike_labels()
     number_of_hike_to_be_labeled = number_of_labeled_hike()
     for i in range(number_of_hike_to_be_labeled):
         hike_ids_already_picked = []
         hike = pick_hike_randomly(hikes, hike_ids_already_picked)
         hike_ids_already_picked.insert(0, hike['hikeid'])
+        number_of_labels_for_hike = number_of_hike_labels()
         for j in range(number_of_labels_for_hike):
             label_ids_already_picked = []
             label = pick_label_randomly(labels, label_ids_already_picked)
