@@ -8,8 +8,7 @@ services:
      - pgadmin
     volumes:
      - './data:/var/lib/postgresql/data'
-     - './create-hike-database.sql:/scripts/create-hike-database.sql'
-     - './load-test-data.sql:/scripts/load-test-data.sql'
+     - './scripts:/scripts'
      - '../test-data:/test-data'
     environment:
      - POSTGRES_PASSWORD=sigl2020
