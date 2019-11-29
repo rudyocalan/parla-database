@@ -91,13 +91,13 @@ hikeid,hikename
 90,Mount Townsend
 91,Lake Twentytwo - Lake 22
 92,Cold Creek Loop via Tinkham and Silver Peaks
-93,Park Butte,,,,,,,,,Fall foliage,,
+93,Park Butte
 94,Cable Line Trail
 95,Ptarmigan Ridge
 96,Chain Lakes Loop
 97,Davis Peak
 98,Sequalitchew Creek
-99,The Enchantments,,,,,,,,,Old growth,Fall foliage,
+99,The Enchantments
 100,Heather Lake
 101,Table Mountain
 102,River To Rock Trail
@@ -255,7 +255,7 @@ hikeid,hikename
 254,Windy Ridge Trail
 255,Wild Goose
 256,Whittaker Wilderness Peak
-257,White Pass - Pilot Ridge Loop,,,,,,,,,Waterfalls,Old growth,Fall foliage
+257,White Pass - Pilot Ridge Loop
 258,Hanford Reach - North
 259,White Mountain via Kettle Crest Trail South
 260,West Hylebos Wetlands
@@ -270,7 +270,7 @@ hikeid,hikename
 269,West Side Road
 270,West Tiger No. 1 via Fred's Corner
 271,West Access Trail
-272,Whistler Canyon Trail,,,,,,,,,Old growth,Good for kids,Fall foliage
+272,Whistler Canyon Trail
 273,West Fork Pasayten River
 274,West Butte
 275,Whiskey Dick Wildlife Area
@@ -287,7 +287,7 @@ hikeid,hikename
 286,West Peak
 287,West Tiger 2
 288,Willard Springs Trail
-289,Frosty - Wildhorse Creek,,,,,,,,,Fall foliage,,
+289,Frosty - Wildhorse Creek
 290,Wilson Creek
 291,Winchester Mountain
 292,Wilson Creek
@@ -726,7 +726,7 @@ hikeid,hikename
 725,Melmont Ghost Town
 726,Capitol State Forest - McLane Creek
 727,Mary's Peak
-728,Marmot Pass - Upper Big Quilcene,,,,,,,,,Good for kids,,
+728,Marmot Pass - Upper Big Quilcene
 729,Meta Lake
 730,McLaughlin Canyon Trail
 731,Miller Peak
@@ -1214,7 +1214,7 @@ hikeid,hikename
 1213,Pete's Creek - Colonel Bob Peak
 1214,Clay Pit Road
 1215,Cleman Mountain - Waterworks Canyon Loop
-1216,Cooper River,,,,,,,,,Fall foliage,,
+1216,Cooper River
 1217,Chuckanut Ridge Trail
 1218,Cleveland Mountain
 1219,Coal Mines Trail
@@ -1602,7 +1602,7 @@ hikeid,hikename
 1601,Cultus Creek
 1602,Glacier Gap
 1603,Trapper Lake
-1604,Pacific Crest Trail (PCT) Section H - Bridge of Gods to White Pass,,,,,,,,,Waterfalls,Old growth,Fall foliage
+1604,Pacific Crest Trail (PCT) Section H - Bridge of Gods to White Pass
 1605,Ala Spit
 1606,Icicle Ridge Lookout
 1607,Holden Village to High Bridge
@@ -1822,7 +1822,7 @@ hikeid,hikename
 1821,Preston-Snoqualmie
 1822,Liberty Cap
 1823,Soda Springs 
-1824,Pacific Crest Trail (PCT) Section I - White Pass to Snoqualmie Pass,,,,,,,,,Fall foliage,,
+1824,Pacific Crest Trail (PCT) Section I - White Pass to Snoqualmie Pass
 1825,Wonderland Trail - Mowich to Longmire
 1826,Deception Pass State Park - Fidalgo Island Side
 1827,Old Mine Trail
@@ -2091,7 +2091,7 @@ hikeid,hikename
 2090,Spider Gap
 2091,St. Andrews Park - St. Andrews Lake
 2092,Mount Kent
-2093,Banshee Peak,,,,,,,,,Old growth,,
+2093,Banshee Peak
 2094,Skyscraper Pass
 2095,Twenty Lakes Basin
 2096,Wiley Slough - Fir Island
@@ -2264,7 +2264,7 @@ hikeid,hikename
 2263,Narada Falls
 2264,Ice Box Peak
 2265,Copper Point
-2266,Thunder Mountain Lakes,,,,,,,,,Old growth,,
+2266,Thunder Mountain Lakes
 2267,Mount Daniel
 2268,Lion Rock
 2269,Jerry Lakes

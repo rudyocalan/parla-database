@@ -156,8 +156,8 @@ def create_hikes_labels(userid, hikes, labels):
         hike = pick_hike_randomly(hikes, hike_ids_already_picked)
         hike_ids_already_picked.insert(0, hike['hikeid'])
         number_of_labels_for_hike = number_of_hike_labels()
+        label_ids_already_picked = []
         for j in range(number_of_labels_for_hike):
-            label_ids_already_picked = []
             label = pick_label_randomly(labels, label_ids_already_picked)
             label_ids_already_picked.insert(0, label['labelid'])
             hike_label= {

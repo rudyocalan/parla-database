@@ -11,7 +11,7 @@
 
 DROP TABLE IF EXISTS hikes CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS label CASCADE;
+DROP TABLE IF EXISTS labels CASCADE;
 DROP TABLE IF EXISTS landtypes CASCADE;
 DROP TABLE IF EXISTS ratings CASCADE;
 DROP TABLE IF EXISTS haslabeled CASCADE;
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS hasalandtype CASCADE;
  *
  * hikes: hikeid (int, primary key), hikename (text)
  *
- * label: labelid (int, primary key), labelinfo (text)
+ * labels: labelid (int, primary key), labelinfo (text)
  *
  * landtypes: landid (int, primary key), landtype (text)
  *
@@ -43,7 +43,7 @@ CREATE TABLE users (
   username TEXT NOT NULL
 );
 
-CREATE TABLE label (
+CREATE TABLE labels (
   labelid INT PRIMARY KEY,
   labelinfo TEXT NOT NULL
 );
@@ -57,15 +57,15 @@ CREATE TABLE ratings (
   userid INT REFERENCES users(userid) ON DELETE NO ACTION,
   hikeid INT REFERENCES hikes(hikeid) ON DELETE NO ACTION,
   rating NUMERIC NOT NULL CHECK (rating >= 0 AND rating <= 5),
-  timestamp INT NOT NULL CHECK (timestamp >= 0),
+  timestamp BIGINT NOT NULL CHECK (timestamp >= 0),
   PRIMARY KEY (userid, hikeid)
 );
 
 CREATE TABLE haslabeled (
   userid INT REFERENCES users(userid) ON DELETE NO ACTION,
   hikeid INT REFERENCES hikes(hikeid) ON DELETE NO ACTION,
-  labelid INT REFERENCES label(labelid) ON DELETE NO ACTION,
-  timestamp INT NOT NULL CHECK (timestamp >= 0),
+  labelid INT REFERENCES labels(labelid) ON DELETE NO ACTION,
+  timestamp BIGINT NOT NULL CHECK (timestamp >= 0),
   PRIMARY KEY (userid, hikeid, labelid)
 );
 

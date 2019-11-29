@@ -8,9 +8,14 @@ services:
      - pgadmin
     volumes:
      - './data:/var/lib/postgresql/data'
+     - './create-hike-database.sql:/scripts/create-hike-database.sql'
+     - './load-test-data.sql:/scripts/load-test-data.sql'
+     - '../test-data:/test-data'
     environment:
      - POSTGRES_PASSWORD=sigl2020
      - POSTGRES_USER=sigl2020
+    ports:
+    - '5432:5432'
   pgadmin4:
     image: dpage/pgadmin4:4.15
     container_name: pgadmin4

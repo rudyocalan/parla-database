@@ -35,6 +35,31 @@ Once logged in add the local PostgreSQL:
 ![create-server-connection](doc/create-server-connection.png)
 
 
+## Create your database and your database schema
+
+### Create your hikedb with PgAdmin
+
+Go to your "local" server > right click > Create
+
+Then name it "hikedb"
+
+### Create your schema
+
+From your terminal, execute:
+
+```
+# scripts are mounted as volume under /scripts
+# test-data are mounted as volume under /test-data
+docker exec postgres-12 psql -U sigl2020 -d hikedb -a -f /scripts/create-hike-database.sql
+```
+
+This will create the schema under "hikedb".
+
+You can view your schema under Schema section:
+
+![view-schema](doc/view-schema.png)
+
+
 ## Use PosgreSQL CLI
 
 > Note: You should have your `docker-compose`'s container up and running
