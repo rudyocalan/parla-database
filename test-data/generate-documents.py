@@ -13,22 +13,77 @@ def write_mongo_script(file_path, var_name, json_arr):
           mongo_script_file.write(f'{doc_str},\n')
       mongo_script_file.write(']\n')
 
+def load_hike_labels(hike_labels_path):
+    hike_labels = []
+    with open(hike_labels_path) as json_file:
+        hike_labels = json.load(json_file)
+    return hike_labels
+
 def create_labels_import_script(labels_file_path, script_path):
+    labels = []
     with open(labels_file_path) as json_file:
         labels = json.load(json_file)
-        write_mongo_script(script_path, 'labels', labels)
+        label_docs = map(
+            lambda label: {
+                "_id": label['labelid'],
+                "labelinfo": label['labelinfo']
+            },
+            labels
+        )
+        write_mongo_script(script_path, 'labels', label_docs)
+    return labels
 
-def create_hikes_import_script(hikes_file_path):
+def create_users_import_script(users_file_path, script_path):
+    with open(users_file_path) as json_file:
+        users = json.load(json_file)
+        user_docs = map(
+            lambda user: {
+                "_id": user['userid'],
+                "username": user['username']
+            },
+            users
+        )
+        write_mongo_script(script_path, 'users', user_docs)
+
+def create_ratings_import_script(ratings_file_path, script_path):
+    with open(ratings_file_path) as json_file:
+        ratings = json.load(json_file)
+        rating_docs = map(
+            lambda rating: {
+                "user_id": rating['userid'],
+                "hike_id": rating['hikeid'],
+                "rating": rating['rate'],
+                "timestamp": rating['timestamp']
+            },
+            ratings
+        )
+        write_mongo_script(script_path, 'ratings', rating_docs)
+
+
+def hike_label_id_list(hike_id, hike_labels):
+    labels = list(filter(
+        lambda hike_label: hike_id == hike_label['hikeid'],
+        hike_labels
+    ))
+    label_list = list(map(lambda label: label['labelid'], labels))
+    return label_list
+
+def create_hikes_import_script(hikes_file_path, script_path, hike_labels=[]):
     with open(hikes_file_path) as json_file:
         hikes = json.load(json_file)
-        #with open(label)
+        hike_docs = map(
+            lambda hike: {
+                "_id": hike['hikeid'],
+                "hikename": hike['hikename'],
+                "labels": hike_label_id_list(hike['hikeid'], hike_labels)
+            },
+            hikes
+        )
+        write_mongo_script(script_path, 'hikes', hike_docs)
 
 if __name__ == "__main__":
-    create_labels_import_script('./labels.json', './labels.js')
-    # hikes_loaded = load_hikes('hikes.json')
-    # users_loaded = load_users('users.json')
-    # landtypes_loaded = load_landtypes('landtypes.json')
-    # labels_loaded = load_labels('labels.json')
-    # ratings = load_ratings('ratings.json')
-    # hike_landtypes = load_hike_landtypes('hike-landtypes.jsonon')
-    # hike_labels = load_hike_labels('hike-labels.jsonon')
+    labels = create_labels_import_script('./labels.json', './labels.js')
+    create_users_import_script('./users.json', './users.js')
+    create_ratings_import_script('./ratings.json', './ratings.js')
+    hike_labels = load_hike_labels('./hike-labels.json')
+    create_hikes_import_script('./hikes.json', './hikes.js', hike_labels=hike_labels)
