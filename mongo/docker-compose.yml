@@ -8,19 +8,22 @@ services:
     - mongo
     volumes:
     - './data:/data'
+    - '../test-data:/test-data'
+    - './scripts:/scripts'
     environment:
     - MONGO_INITDB_ROOT_USERNAME=sigl2020
     - MONGO_INITDB_ROOT_PASSWORD=sigl2020
+    ports:
+    - '27017:27017'
   mongo-express:
     image: mongo-express:0.49.0
     container_name: mongo-express
     networks:
     - mongo
     environment:
-    - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
+    - ME_CONFIG_MONGODB_ADMINUSERNAME=sigl2020
+    - ME_CONFIG_MONGODB_ADMINPASSWORD=sigl2020
     - ME_CONFIG_MONGODB_SERVER=mongo-4
-    - ME_CONFIG_MONGODB_AUTH_USERNAME=sigl2020
-    - ME_CONFIG_MONGODB_AUTH_PASSWORD=sigl2020
     ports:
     - 8081:8081
 

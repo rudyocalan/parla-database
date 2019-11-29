@@ -19,6 +19,12 @@ docker-compose up -d
 You can visualize your (empty) local mongo using mongo-express on
 http://localhost:8081/
 
+## Load test data into Mongo
+
+```bash
+docker exec mongo-4 sh -c "mongo -u sigl2020 -p sigl2020 < /scripts/load-test-data.js"
+```
+
 ## Using MongoDB shell (CLI)
 
 > Note: You should have your `docker-compose`'s container up and running
